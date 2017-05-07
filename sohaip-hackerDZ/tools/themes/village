@@ -1,0 +1,23 @@
+<?php
+error_reporting(0);
+echo '<title>Colly Sehat :v</title>
+<form method="get">
+Target : <input type="text" name="tar" placeholder="Target" value="http://">
+<br/>
+Postname : <input type="text" name="psn" placeholder="Postname">
+<br/>
+<input type="submit" value="oke">
+</form>';
+if(!empty($_GET[tar]) AND !empty($_GET[psn])){
+$target = $_GET[tar];
+$spc = array('<', '>', '&');
+$spv = array('<', '>', '&');
+$postname = str_replace($spc, $spv, $_GET[psn]);
+echo '<hr/>
+<form method="post" target="_blank" enctype="multipart/form-data" action="'.$target.'">
+<input type="file" name="'.$postname.'"><input type="submit" value="jos">
+</form>';
+}else{
+echo '';
+}
+?>
